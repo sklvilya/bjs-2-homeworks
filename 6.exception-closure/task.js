@@ -1,19 +1,19 @@
 // Задание 1
 
 let parseCount = function (value) {
-    if (value && isNaN(value)) {
+    let result = Number.parseInt(value);
+    if (isNaN(result)) {
         throw new Error("Невалидное значение");
     }
-    return Number.parseInt(value);
+    return result;
 }
 
 let validateCount = function (value) {
     try {
-        parseCount(value);
+        return parseCount(value);
     } catch (e) {
         return e;
     }
-    return Number.parseInt(value);
 }
 
 
@@ -32,9 +32,8 @@ class Triangle {
         return this.a + this.b + this.c;
     }
     getArea() {
-        let perimeter = this.a + this.b + this.c;
-        this.p = perimeter / 2;
-        let area = Math.sqrt(this.p * ((this.p - this.a) * (this.p - this.b) * (this.p - this.c)));
+        let p = this.getPerimeter() / 2;
+        let area = Math.sqrt(p * ((p - this.a) * (p - this.b) * (p - this.c)));
         return Number((area).toFixed(3));
     }
 }
@@ -43,6 +42,6 @@ getTriangle = function (a, b, c) {
     try {
         return new Triangle(a, b, c);
     } catch (e) {
-        return Object = { getArea() { return new Error("Ошибка! Треугольник не существует") }, getPerimeter() { return new Error("Ошибка! Треугольник не существует") } };
+        return { getArea() { return ("Ошибка! Треугольник не существует") }, getPerimeter() { return ("Ошибка! Треугольник не существует") } };
     }
 }
