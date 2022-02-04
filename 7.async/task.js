@@ -5,12 +5,7 @@ class AlarmClock {
     }
 
     addClock(time, callback, id) {
-        if (!id)
-            throw new Error('Не указан id');
-        if (this.alarmCollection.length === 0) {
-            this.alarmCollection.push({ time, callback, id });
-            return;
-        }
+        if (!id) throw new Error('Не указан id');
         const existId = this.alarmCollection.find(value => value.id == id);
         if (existId) {
             console.log("Ошибка, такой id уже есть", existId);
@@ -20,9 +15,7 @@ class AlarmClock {
     }
 
     removeClock(id) {
-        const deleteId = this.alarmCollection.findIndex(value => {
-            return value.id === id;
-        });
+        const deleteId = this.alarmCollection.findIndex(value => value.id === id);
         if (deleteId !== -1) {
             this.alarmCollection.splice(deleteId, 1);
             return true;
